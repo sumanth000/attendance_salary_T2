@@ -89,59 +89,54 @@ let OfEmployee = (params) => {
 
         if (filterOption == 'Daily') {
             let dataToShow = [...dbData];
-
-             let groupedDataObject=dataToShow.reduce((acc,e) => {
-
-                let day=e['in_time'];
-                
-                if(!acc[day])
-                {
-                   acc[day]={
-                    in_time : day,
-                    earnings: e['hours_worked']*e['pay_scale']
-                   }
-                }
-                else
-                {
-                    acc[day].earnings+=e['hours_worked']*e['pay_scale']
+        
+            let groupedDataObject = dataToShow.reduce((acc, e) => {
+        
+                let day = e['in_time'];
+        
+                if (!acc[day]) {
+                    acc[day] = {
+                        in_time: day,
+                        earnings: e['hours_worked'] * e['pay_scale'],
+                        deductions: (e['hours_worked'] * e['pay_scale']) * 0.1 // 10% deductions
+                    }
+                } else {
+                    acc[day].earnings += e['hours_worked'] * e['pay_scale'];
+                    acc[day].deductions += (e['hours_worked'] * e['pay_scale']) * 0.1; // Adding deductions
                 }
                 return acc;
-            },{})
+            }, {})
             console.log(groupedDataObject);
-
+        
             setAnalyticsData(Object.values(groupedDataObject));
-
+        
             setPerDayData(Object.values(groupedDataObject))
-
-            
-
         }
+        
         if (filterOption == 'Monthly') {
             let dataToShow = [...dbData];
-
-             let groupedDataObject=perDayData.reduce((acc,e) => {
-
-                let date=e['in_time'].substring(0, 7);
-                
-                if(!acc[date])
-                {
-                   acc[date]={
-                    in_time : date,
-                    earnings: e['earnings']
-                   }
-                }
-                else
-                {
-                    acc[date].earnings+=e['earnings']
+        
+            let groupedDataObject = perDayData.reduce((acc, e) => {
+        
+                let date = e['in_time'].substring(0, 7);
+        
+                if (!acc[date]) {
+                    acc[date] = {
+                        in_time: date,
+                        earnings: e['earnings'],
+                        deductions: e['deductions'] // Copy deductions from perDayData
+                    }
+                } else {
+                    acc[date].earnings += e['earnings'];
+                    acc[date].deductions += e['deductions']; // Add deductions
                 }
                 return acc;
-            },{})
+            }, {})
             console.log(groupedDataObject);
-
+        
             setAnalyticsData(Object.values(groupedDataObject));
-
-            // setAnalyticsData(dataToShow);
         }
+        
 
         if (filterOption === 'Weekly') {
             let dataToShow = [...dbData];
@@ -150,7 +145,6 @@ let OfEmployee = (params) => {
                 let yearMonth = e.in_time.substring(0, 7);
                 let day = parseInt(e.in_time.substring(8, 10)); 
         
-                
                 let weekNumber = Math.ceil(day / 7);
         
                 let weekLabel = `${yearMonth}-week${weekNumber}`;
@@ -158,10 +152,12 @@ let OfEmployee = (params) => {
                 if (!acc[weekLabel]) {
                     acc[weekLabel] = {
                         in_time: weekLabel,
-                        earnings: e.earnings
+                        earnings: e.earnings,
+                        deductions: e.deductions // Assuming 'deductions' is already calculated for each entry in perDayData
                     };
                 } else {
                     acc[weekLabel].earnings += e.earnings;
+                    acc[weekLabel].deductions += e.deductions; // Add deductions
                 }
                 return acc;
             }, {});
@@ -177,6 +173,7 @@ let OfEmployee = (params) => {
         
             setAnalyticsData(sortedAnalyticsData);
         }
+        
 
        
         
@@ -200,7 +197,6 @@ let OfEmployee = (params) => {
 
                 <div className={empStyles.closeButton}>
                     <button onClick={close}>Back</button>
-
                 </div>
 
                 <div className={empStyles.filterSpace}>
@@ -250,7 +246,9 @@ let OfEmployee = (params) => {
                             <YAxis label={{ value: 'Earnings', angle: -90, position: 'insideLeft' }} />
                             <Tooltip />
                             <Legend />
-                            <Bar dataKey="earnings" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+                            <Bar dataKey="earnings" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />}/>
+                            <Bar dataKey="deductions" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+
                         </BarChart>
                     </ResponsiveContainer>
                 ) : (
