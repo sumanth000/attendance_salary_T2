@@ -28,11 +28,14 @@ jobs:
           npm install @mui/x-date-pickers
 
 
+      
+        
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: .
+          path: . # Adjust the path to include only the files you want to archive
+          archive-type: zip 
 
   deploy:
     runs-on: ubuntu-latest
