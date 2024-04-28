@@ -8,8 +8,8 @@ import empStyles from './css_folder/employeePage.module.css'
 import { useLocation } from 'react-router-dom';
 import './css_folder/employeePage.css';
 
-import AddIcon from '@mui/icons-material/Add';
-import { Save } from '@mui/icons-material';
+// import AddIcon from '@mui/icons-material/Add';
+// import { Save } from '@mui/icons-material';
 import OfEmployee from './ofEmployee';
 import LeavesPage from './leavesPage';
 import LeavesHistory from './leavesHistory';
