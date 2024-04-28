@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import empCredData from '../data_folders/employeeCredentials.json'
 // import  adminCredData from '../data_folders/adminCredentials.json'
-import axios from 'axios';
+// import axios from 'axios';
 export default function LoginPage() {
     let credentialsObject = {
         who: 'employee',
