@@ -58,9 +58,9 @@ const LeavesApproval = (params) => {
     let approve_leaves = async (row, canApprove) => {
         console.log('row', row, '  ', canApprove);
 
-        // http://localhost:8081/ttp-application/leaves/approve?id=1&approve=false
+        // https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/leaves/approve?id=1&approve=false
 
-        const response = await fetch('http://localhost:8081/ttp-application/leaves/approve?id=' + row.id + '&approve=' + canApprove, {
+        const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/leaves/approve?id=' + row.id + '&approve=' + canApprove, {
             method: 'POST'
         });
 
@@ -94,7 +94,7 @@ const LeavesApproval = (params) => {
 
     let fetchStadardPayrolls = async (current_role_name) => {
 
-        let standardPayRollResponse = await fetch('http://localhost:8081/ttp-application/standardPayRolls');
+        let standardPayRollResponse = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/standardPayRolls');
         let standardPayRollResponseJson = await standardPayRollResponse.json();
         console.log('standardPayRollResponseJson', standardPayRollResponseJson);
 
@@ -106,7 +106,7 @@ const LeavesApproval = (params) => {
     }
 
     let fetchLeavesHistory = async (empId) => {
-        let response = await fetch('http://localhost:8081/ttp-application/leaves/history?employeeId=' + data.employee_id);
+        let response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/leaves/history?employeeId=' + data.employee_id);
         let responseJson = await response.json();
         console.log('responseJson history --> ', responseJson);
         if (responseJson) {
@@ -140,7 +140,7 @@ const LeavesApproval = (params) => {
 
     let fetchPersonDetails = async (employeeId) => {
 
-        let response = await fetch('http://localhost:8081/ttp-application/getEmployeeDetails');
+        let response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/getEmployeeDetails');
         let responseJson = await response.json();
         console.log("##person response", responseJson);
         console.log(responseJson.filter((e) => { return e.id == employeeId })[0].payscale);
@@ -187,7 +187,7 @@ const LeavesApproval = (params) => {
 
         }
         else {
-            const response = await fetch('http://localhost:8081/ttp-application/updatePersonPayRoll', {
+            const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/updatePersonPayRoll', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

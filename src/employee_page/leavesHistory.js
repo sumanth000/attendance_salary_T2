@@ -18,7 +18,7 @@ let LeavesHistory = (params) => {
 
 
     let fetchLeavesHistory = async (empId) => {
-        let response = await fetch('http://localhost:8081/ttp-application/leaves/history?employeeId=' +empId);
+        let response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/leaves/history?employeeId=' +empId);
         let responseJson = await response.json();
         console.log('responseJson history --> ', responseJson);
         if(responseJson)
@@ -36,7 +36,7 @@ let LeavesHistory = (params) => {
             prevObj.employeeId = propData.employeeId;
             return prevObj;
         })
-        // http://localhost:8081/ttp-application/leaves/history?employeeId=123
+        // https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/leaves/history?employeeId=123
 
         fetchLeavesHistory(propData.employeeId);
 
@@ -66,7 +66,7 @@ let LeavesHistory = (params) => {
     let submitFunction = async () => {
 
 
-        const response = await fetch('http://localhost:8081/ttp-application/submit/leaves', {
+        const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/submit/leaves', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -24,7 +24,7 @@ const EditDetailsOfPerson = (params) => {
 
       let fetchStadardPayrolls = async (current_role_name) => {
 
-        let standardPayRollResponse = await fetch('http://localhost:8081/ttp-application/standardPayRolls');
+        let standardPayRollResponse = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/standardPayRolls');
         let standardPayRollResponseJson = await standardPayRollResponse.json();
         console.log('standardPayRollResponseJson', standardPayRollResponseJson);
 
@@ -56,7 +56,7 @@ const EditDetailsOfPerson = (params) => {
 
     let fetchPersonDetails = async (employeeId) => {
 
-        let response = await fetch('http://localhost:8081/ttp-application/getEmployeeDetails');
+        let response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/getEmployeeDetails');
         let responseJson = await response.json();
         console.log("##person response", responseJson);
         console.log(responseJson.filter((e) => { return e.id == employeeId })[0].payscale);
@@ -105,7 +105,7 @@ const EditDetailsOfPerson = (params) => {
             }
             else
             {
-                const response = await fetch('http://localhost:8081/ttp-application/updatePersonPayRoll', {
+                const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/updatePersonPayRoll', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

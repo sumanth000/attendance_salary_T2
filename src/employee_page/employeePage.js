@@ -125,9 +125,9 @@ export default function EmployeePage() {
 
         // console.log("#12", empNewData[empNewData.length - 1].disable_clock_out);
 
-        // http://localhost:8081/ttp-application/leaves/history?employeeId=123
+        // https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/leaves/history?employeeId=123
 
-        const resp=await fetch('http://localhost:8081/ttp-application/leaves/history?employeeId='+propData.employeeId);
+        const resp=await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/leaves/history?employeeId='+propData.employeeId);
         const responseJson=await resp.json();
         console.log("##responseJson history##",responseJson);
 
@@ -245,7 +245,7 @@ setViewLeavesHistoryScreen(true);
 
         let payload=newRow;
 
-        const response = await fetch('http://localhost:8081/ttp-application/saveEmployeeDetail', {
+        const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/saveEmployeeDetail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -274,7 +274,7 @@ setViewLeavesHistoryScreen(true);
         //     in_time:empData.in_time,
         //     out_time:empData.out_time
         // }
-        const response = await fetch('http://localhost:8081/ttp-application/updateEmployeeDetail', {
+        const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/updateEmployeeDetail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -303,7 +303,7 @@ setViewLeavesHistoryScreen(true);
         }
 
         console.log("##newPayload##", newPayLoad_with_time_difference);
-        const response = await fetch('http://localhost:8081/ttp-application/updateEmployeeDetail', {
+        const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/updateEmployeeDetail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -324,7 +324,7 @@ setViewLeavesHistoryScreen(true);
         let payload = {
             userId: propData.userId
         }
-        const response = await fetch('http://localhost:8081/ttp-application/EmployeeDetail', {
+        const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/EmployeeDetail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

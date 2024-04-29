@@ -125,7 +125,7 @@ export default function LoginPage() {
 
     //     console.log(credentials.who, '#', credentials.userId, '#', credentials.password);
 
-    //     let response = await fetch('http://localhost:8081/ttp-application/login', {
+    //     let response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/login', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json'
@@ -148,7 +148,7 @@ export default function LoginPage() {
         console.log(credentials.who, '#', credentials.userId, '#', credentials.password);
     
         try {
-            const response = await fetch('http://localhost:8081/ttp-application/login', {
+            const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -187,7 +187,7 @@ export default function LoginPage() {
 
 
     //         if (employeeCredData.length == 0) {
-    //             let employeeCredresponse = await fetch('http://localhost:8081/ttp-application/getEmployeeDetails');
+    //             let employeeCredresponse = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/getEmployeeDetails');
     //             let employeeCredresponseJson = await employeeCredresponse.json();
     //             employeeCredresponseJson.map((e) => {
     //                 employeeCredData.push(e);
@@ -223,7 +223,7 @@ export default function LoginPage() {
 
 
     //         if (adminCredData.length == 0) {
-    //             let adminCredresponse = await fetch('http://localhost:8081/ttp-application/getStandardPayrolls');
+    //             let adminCredresponse = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/getStandardPayrolls');
     //             let adminCredresponseJson = await adminCredresponse.json();
     //             adminCredresponseJson.map((e) => {
     //                 adminCredData.push(e);

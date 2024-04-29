@@ -123,8 +123,8 @@ export default function AdminPage() {
    }
 
     let fetchAttendanceDetails = async () => {
-        //http://localhost:8081/ttp-application/getEmployeeAttendanceDetails
-        let response = await fetch('http://localhost:8081/ttp-application/getEmployeeAttendanceDetails');
+        //https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/getEmployeeAttendanceDetails
+        let response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/getEmployeeAttendanceDetails');
         let responseJson = await response.json();
 
         console.log("##attendance response", responseJson);
@@ -162,7 +162,7 @@ export default function AdminPage() {
 
     let fetchPersonDetails = async () => {
 
-        let response = await fetch('http://localhost:8081/ttp-application/getEmployeeDetails');
+        let response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/getEmployeeDetails');
         let responseJson = await response.json();
         console.log("##person response", responseJson);
 

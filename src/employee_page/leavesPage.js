@@ -41,7 +41,7 @@ let LeavesPage = (params) => {
     let submitFunction = async () => {
 
 
-        const response = await fetch('http://localhost:8081/ttp-application/submit/leaves', {
+        const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/submit/leaves', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

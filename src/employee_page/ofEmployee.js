@@ -49,7 +49,7 @@ let OfEmployee = (params) => {
         let payload = {
             userId: propData.userId
         }
-        const response = await fetch('http://localhost:8081/ttp-application/EmployeeDetail', {
+        const response = await fetch('https://backend-azure-spring-ttp-azure-ser.azuremicroservices.io/ttp-application/EmployeeDetail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
