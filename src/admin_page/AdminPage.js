@@ -174,10 +174,17 @@ export default function AdminPage() {
 
         fetchPersonDetails();
     }, [])
+    let takeToLoginPage=()=>{
+      window.location.href = '/';
+  }
 
     return (
         <div className={admstyles.body}>
-            <div className={admstyles.title}>ADMIN PAGE</div>
+           <div className={admstyles.absoluteTitleBox}>
+           <div className={admstyles.title}>ADMIN PAGE</div>
+                <div className={admstyles.logout} onClick={takeToLoginPage}>log out</div>
+            </div>
+
             { showAdminPage &&
                 <div className={admstyles.tableContainer}>
                 <DataGrid

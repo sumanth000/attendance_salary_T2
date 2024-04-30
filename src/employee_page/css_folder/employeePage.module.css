@@ -15,19 +15,7 @@ position: relative;
 
 }
 
-.title{
-  position: absolute;
-  top:5px;
-  font-weight: 900;
-  display:block;
-  height: fit-content;
-  width: fit-content;
-  background: linear-gradient(45deg,red,orange);
-  color:white;
-  padding:10px;
-  border-radius: 5px ;
 
-}
 
 
 
@@ -260,4 +248,52 @@ position: relative;
   display: flex;
   width: 400px;
   height: 106px;
+}
+
+
+
+.absoluteTitleBox{
+  position: absolute;
+  top: -2px;
+  display: flex;
+  flex-direction: row;
+  width: 90px;
+  justify-content: space-between;
+}
+
+.logout{
+  position: absolute;
+  top: 19px;
+  left: 50vh;
+  display: block;
+  width: 66px;
+  /* border: 2px solid black; */
+  border-radius: 20px;
+  background: rgb(202, 203, 203);
+  color:white;
+  padding:8px;
+  font-weight: 800;
+}
+
+.logout:hover{
+  background: rgb(255, 0, 0);
+  color: white;
+  cursor: pointer;
+}
+
+.title{
+  position: absolute;
+    top: 5px;
+    font-weight: 900;
+    display: block;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    white-space: nowrap;
+    background: linear-gradient(45deg, red, orange);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+
 }

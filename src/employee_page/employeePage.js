@@ -366,10 +366,20 @@ setViewLeavesHistoryScreen(true);
         setViewLeavesHistoryScreen(false);
     }
 
+    let takeToLoginPage=()=>{
+        window.location.href = '/';
+    }
+
     return (
         <div className='body'>
+            <div className={empStyles.absoluteTitleBox}>
+                <div className={empStyles.title}>EMPLOYEE PAGE</div>
+                <div className={empStyles.logout} onClick={takeToLoginPage}>log out</div>
+            </div>
 
-            <div className={empStyles.title}>EMPLOYEE PAGE</div>
+           
+
+            
 
             { viewAttendanceScreen && 
                 <div className={empStyles.tableContainer}>
